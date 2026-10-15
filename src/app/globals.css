@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./brand.css";
+
+/* Spotter follows the OS theme, so `dark:` means the media query, not a class. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* ---------------------------------------------------------------------------
+   Brand tokens. Navy is the surface, marigold is the highlighter.
+   Marigold is never text on white: it is a fill with ink on top, or text on navy.
+   Neutrals lean blue so marigold reads as the complement.
+   --------------------------------------------------------------------------- */
+:root {
+  --paper: #ffffff;
+  --wash: #f2f4f8;
+  --panel: #ffffff;
+  --ink: #111a30;
+  --ink-2: #444d65;
+  --ink-3: #5e6780;
+  --rule: #dadfe9;
+  --marker: #ffb627;
+  --marker-press: #f5a30f;
+  --marker-ink: #111a30;
+  --navy: #0f1a33;
+  --navy-2: #18264a;
+  --on-navy: #f3f5fa;
+  --on-navy-muted: rgba(243, 245, 250, 0.74);
+  --on-navy-rule: rgba(243, 245, 250, 0.16);
+  --glow-warm: rgba(255, 182, 39, 0.3);
+  --glow-cool: rgba(92, 128, 255, 0.22);
+  --loss: #c2331f;
+  --gain: #17794a;
+  --shadow: rgba(17, 26, 48, 0.16);
+
+  --wa-bg: #efeae2;
+  --wa-head: #f0f2f5;
+  --wa-head-ink: #111b21;
+  --wa-in: #ffffff;
+  --wa-out: #d9fdd3;
+  --wa-ink: #111b21;
+  --wa-meta: #667781;
+  --wa-sys: #ffeecd;
+  --wa-sys-ink: #54461a;
+  --wa-shadow: rgba(11, 20, 26, 0.13);
+
+  --sheet: #fcfbf6;
+  --sheet-ink: #22398c;
+  --sheet-rule: #bccbea;
+  --sheet-margin: #e27a7a;
+  --qr-bg: #ffffff;
+  --qr-ink: #111a30;
+
+  --cut-sm: 8px;
+  --cut-md: 10px;
+  --cut-lg: 16px;
+  --container: 1240px;
+  --gutter-x: clamp(16px, 4vw, 40px);
+  --header-h: 68px;
+  --space-section: clamp(80px, 10vw, 144px);
+  --space-split: clamp(40px, 6vw, 96px);
+  --sweep-duration: 0.8s;
+
+  /* shadcn semantic tokens, pointed at the brand */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--panel);
+  --card-foreground: var(--ink);
+  --popover: var(--panel);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--wash);
+  --secondary-foreground: var(--ink);
+  --muted: var(--wash);
+  --muted-foreground: var(--ink-3);
+  --accent: var(--marker);
+  --accent-foreground: var(--marker-ink);
+  --destructive: var(--loss);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--ink);
+  --radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0b0f1a;
+    --wash: #121827;
+    --panel: #182033;
+    --ink: #eceff6;
+    --ink-2: #afb6c8;
+    --ink-3: #8b93a8;
+    --rule: #283048;
+    --marker-press: #ffc54f;
+    --navy: #121c36;
+    --navy-2: #1b2849;
+    --glow-warm: rgba(255, 182, 39, 0.16);
+    --glow-cool: rgba(92, 128, 255, 0.18);
+    --loss: #ff7b67;
+    --gain: #52cf8f;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --wa-bg: #0b141a;
+    --wa-head: #202c33;
+    --wa-head-ink: #e9edef;
+    --wa-in: #202c33;
+    --wa-out: #005c4b;
+    --wa-ink: #e9edef;
+    --wa-meta: #8696a0;
+    --wa-sys: #2a2a1c;
+    --wa-sys-ink: #f2d98a;
+    --wa-shadow: rgba(0, 0, 0, 0.4);
+    --sheet: #eeebe0;
+    --sheet-rule: #afc0e2;
+    --sheet-margin: #d86a6a;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --font-display: var(--font-anek-latin), var(--font-anek-devanagari), "Arial Narrow", Arial, sans-serif;
+  --font-sans: var(--font-mukta), "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: var(--font-display);
+  --font-hand: var(--font-kalam), "Segoe Print", "Comic Sans MS", cursive;
+
+  --color-paper: var(--paper);
+  --color-wash: var(--wash);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-marker: var(--marker);
+  --color-marker-press: var(--marker-press);
+  --color-marker-ink: var(--marker-ink);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-on-navy: var(--on-navy);
+  --color-on-navy-muted: var(--on-navy-muted);
+  --color-on-navy-rule: var(--on-navy-rule);
+  --color-loss: var(--loss);
+  --color-gain: var(--gain);
+  --color-wa-bg: var(--wa-bg);
+  --color-wa-head: var(--wa-head);
+  --color-wa-head-ink: var(--wa-head-ink);
+  --color-wa-in: var(--wa-in);
+  --color-wa-out: var(--wa-out);
+  --color-wa-ink: var(--wa-ink);
+  --color-wa-meta: var(--wa-meta);
+  --color-wa-sys: var(--wa-sys);
+  --color-wa-sys-ink: var(--wa-sys-ink);
+  --color-sheet: var(--sheet);
+  --color-sheet-ink: var(--sheet-ink);
+  --color-qr-bg: var(--qr-bg);
+  --color-qr-ink: var(--qr-ink);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 2);
+
+  --shadow-panel: 0 1px 2px var(--shadow), 0 12px 28px -14px var(--shadow), 0 48px 96px -48px var(--shadow);
+  --shadow-chat: 0 24px 48px -20px var(--shadow), 0 0 0 1px var(--rule);
+  --shadow-bubble: 0 1px 0 var(--wa-shadow);
+
+  --container-page: var(--container);
+  --spacing-header: var(--header-h);
+  --spacing-section: var(--space-section);
+  --spacing-split: var(--space-split);
+  --ease-sweep: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(2rem, 3.8vw, 3.25rem);
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
