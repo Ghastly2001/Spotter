@@ -3,7 +3,7 @@ import { Highlight } from "@/components/brand/Highlight";
 import { Lede, TextLink } from "@/components/brand/Typography";
 import { Button } from "@/components/ui/button";
 import { JOIN_HREF, SECTION_IDS } from "@/content/navigation";
-import { PRICES } from "@/content/pricing";
+import { FOUNDING_OFFER, PRICES } from "@/content/pricing";
 import { formatRupees } from "@/lib/format";
 import { HeroVisual } from "./HeroVisual";
 
@@ -25,12 +25,12 @@ export function Hero() {
           </Lede>
           <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
             <Button asChild variant="ink" size="cta">
-              <a href={JOIN_HREF}>Join the founding 100</a>
+              <a href={JOIN_HREF}>Join the founding {FOUNDING_OFFER.spots}</a>
             </Button>
             <TextLink href={`#${SECTION_IDS.leak}`}>Work out what you’re losing</TextLink>
           </div>
           <p className="max-w-[46ch] text-[0.9375rem] text-ink-3">
-            Early access for gyms, studios and academies in India. The first 100 gyms pay{" "}
+            Early access for gyms, studios and academies in India. The first {FOUNDING_OFFER.spots} gyms get setup and their first month free, then pay{" "}
             {formatRupees(PRICES.founding)} a month, locked for as long as they stay.
           </p>
         </div>

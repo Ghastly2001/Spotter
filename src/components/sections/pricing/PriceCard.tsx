@@ -5,7 +5,7 @@ import { ChiselCard } from "@/components/brand/ChiselCard";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { JOIN_HREF } from "@/content/navigation";
-import { type BillingPeriod, MONTHS_IN_YEAR, PRICES } from "@/content/pricing";
+import { type BillingPeriod, FOUNDING_NAME, FOUNDING_OFFER, MONTHS_IN_YEAR, PRICES } from "@/content/pricing";
 import { formatRupees } from "@/lib/format";
 
 const TOGGLE_ITEM =
@@ -52,13 +52,13 @@ export function PriceCard() {
 
       <ChiselCard tone="marker" cut="md" className="px-[18px] py-4">
         <b className="mb-0.5 block font-display text-[1.3rem] leading-tight font-bold">
-          Founding 100: {formatRupees(PRICES.founding)} a month
+          {FOUNDING_NAME}: first month free
         </b>
-        Locked for as long as you stay, and we set up your gym for you.
+        Then {formatRupees(PRICES.founding)} a month, locked for as long as you stay. We set up your gym for you.
       </ChiselCard>
 
       <Button asChild variant="ink" size="cta">
-        <a href={JOIN_HREF}>Join the founding 100</a>
+        <a href={JOIN_HREF}>Join the founding {FOUNDING_OFFER.spots}</a>
       </Button>
     </ChiselCard>
   );
