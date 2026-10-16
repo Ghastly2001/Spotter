@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/brand/Container";
 import { FOOTER_NAV } from "@/content/navigation";
 import { Logo } from "./Logo";
@@ -11,9 +12,9 @@ export function SiteFooter() {
         <Logo />
         <nav aria-label="Footer" className="flex flex-wrap gap-5">
           {FOOTER_NAV.map((link) => (
-            <a key={link.href} href={link.href} className="no-underline hover:underline hover:underline-offset-4">
+            <Link key={link.href} href={link.href} className="no-underline hover:underline hover:underline-offset-4">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <span>© {COPYRIGHT_YEAR} Spotter. Made for gyms in India.</span>
