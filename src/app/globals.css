@@ -7,9 +7,9 @@
 @custom-variant dark (@media (prefers-color-scheme: dark));
 
 /* ---------------------------------------------------------------------------
-   Brand tokens. Navy is the surface, marigold is the highlighter.
-   Marigold is never text on white: it is a fill with ink on top, or text on navy.
-   Neutrals lean blue so marigold reads as the complement.
+   Brand tokens. Navy is the surface, mint is the highlighter.
+   Mint is never text on white: it is a fill with ink on top, or text on navy.
+   Neutrals lean blue so mint reads cleanly against them.
    --------------------------------------------------------------------------- */
 :root {
   --paper: #ffffff;
@@ -19,16 +19,16 @@
   --ink-2: #444d65;
   --ink-3: #5e6780;
   --rule: #dadfe9;
-  --marker: #ffb627;
-  --marker-press: #f5a30f;
+  --marker: #2ef2ba;
+  --marker-press: #2adfab;
   --marker-ink: #111a30;
   --navy: #0f1a33;
   --navy-2: #18264a;
   --on-navy: #f3f5fa;
   --on-navy-muted: rgba(243, 245, 250, 0.74);
   --on-navy-rule: rgba(243, 245, 250, 0.16);
-  --glow-warm: rgba(255, 182, 39, 0.3);
-  --glow-cool: rgba(92, 128, 255, 0.22);
+  --glow-warm: rgba(46, 242, 186, 0.3);
+  --glow-cool: rgba(46, 242, 186, 0.2);
   --loss: #c2331f;
   --gain: #17794a;
   --shadow: rgba(17, 26, 48, 0.16);
@@ -92,11 +92,11 @@
     --ink-2: #afb6c8;
     --ink-3: #8b93a8;
     --rule: #283048;
-    --marker-press: #ffc54f;
+    --marker-press: #54f4c6;
     --navy: #121c36;
     --navy-2: #1b2849;
-    --glow-warm: rgba(255, 182, 39, 0.16);
-    --glow-cool: rgba(92, 128, 255, 0.18);
+    --glow-warm: rgba(46, 242, 186, 0.16);
+    --glow-cool: rgba(46, 242, 186, 0.22);
     --loss: #ff7b67;
     --gain: #52cf8f;
     --shadow: rgba(0, 0, 0, 0.55);

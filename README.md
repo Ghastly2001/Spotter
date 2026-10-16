@@ -90,7 +90,7 @@ src/
 
 ## Brand rules
 
-- **Navy** is the brand surface and **marigold** is the highlighter. Marigold is never used as text on white.
+- **Navy** is the brand surface and **mint** (#2EF2BA) is the highlighter. Mint is never used as text on white.
 - **Chisel cuts** (top-left and bottom-right corners) appear only on buttons, highlights and offer cards. Product mockups stay softly rounded so they read as the real app.
 - Example names, gyms and numbers in the mockups are illustrative.
 
