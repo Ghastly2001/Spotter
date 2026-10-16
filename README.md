@@ -4,7 +4,7 @@
 
 Spotter is a gym retention CRM for gyms, studios and sports academies in India. Most gym members don't cancel. They miss a week, then two, and their plan quietly runs out. Spotter notices that early and brings them back.
 
-This repository is the **marketing site** for Spotter: the landing page that explains the product and collects sign-ups from the first 100 "founding" gyms. The product itself is being built separately.
+This repository is the **marketing site** for Spotter: the landing page that explains the product and collects sign-ups from the first 20 "founding" gyms. The product itself is being built separately.
 
 ## What Spotter does
 
@@ -17,7 +17,7 @@ This repository is the **marketing site** for Spotter: the landing page that exp
 - **Covers the everyday basics.** Memberships, GST invoices, a daily cash book, batches, staff roles, multiple branches and a member app.
 - **Imports the paper register.** Owners send a photo or an Excel sheet and Spotter turns it into members, plans and pending dues.
 
-Pricing is one plan per gym with no member caps: ₹1,499 a month, or ₹999 a month locked for life for the founding 100.
+Pricing is one plan per gym with no member caps: ₹1,499 a month. The founding 20 get free setup and their first month free, then pay ₹999 a month for as long as they stay.
 
 ## What's on the landing page
 
@@ -32,7 +32,7 @@ Pricing is one plan per gym with no member caps: ₹1,499 a month, or ₹999 a m
 | Who it's for | Gyms, yoga, martial arts, dance, swimming, badminton and pickleball |
 | Pricing and comparison | One plan, extras, and Spotter compared with a register or typical gym software |
 | FAQ | Common owner questions |
-| Founding 100 sign-up | Early-access form that submits to a server action |
+| Founding 20 sign-up | Early-access form that submits to a server action |
 
 ## Tech stack
 

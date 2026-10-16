@@ -9,6 +9,13 @@ export const PRICES = {
 
 export const MONTHS_IN_YEAR = 12;
 
+/** The founding offer: free setup and a free first month, then PRICES.founding for as long as they stay. */
+export const FOUNDING_OFFER = {
+  spots: 20,
+} as const;
+
+export const FOUNDING_NAME = `Founding ${FOUNDING_OFFER.spots}`;
+
 export const INCLUDED_FEATURES: ReadonlyArray<string> = [
   "Unlimited members",
   "Unlimited staff logins",
