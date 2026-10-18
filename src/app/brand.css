@@ -158,3 +158,72 @@
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
+
+/* Dark wash over a hero photo: solid navy behind the headline, clearing to the right, fading to navy at the foot. */
+@utility hero-scrim {
+  background-image:
+    linear-gradient(to bottom, transparent 75%, var(--navy) 100%),
+    linear-gradient(to right, color-mix(in oklab, var(--navy) 82%, transparent) 0%, color-mix(in oklab, var(--navy) 42%, transparent) 40%, color-mix(in oklab, var(--navy) 6%, transparent) 100%);
+}
+
+/* Re-points the light-on-dark tokens for chrome that floats over a hero photo. */
+@utility on-media {
+  color: var(--on-navy);
+  --ink: var(--on-navy);
+  --ink-2: var(--on-navy-muted);
+  --rule: var(--on-navy-rule);
+  --border: var(--on-navy-rule);
+  --input: var(--on-navy-rule);
+  --background: transparent;
+  --muted: var(--on-navy-rule);
+  --foreground: var(--on-navy);
+}
+
+/* Frosted glass over photo or video, cut to the chisel shape (set --cut on the element).
+   A rim layer (bright at the cut corners, faint between) sits under a blurred, lightly tinted fill.
+   Never put filter, opacity or clip-path on an ancestor: it stops the blur from seeing the footage. */
+@utility glass {
+  position: relative;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+  &::before {
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--on-navy) 75%, transparent),
+      color-mix(in oklab, var(--on-navy) 10%, transparent) 38%,
+      color-mix(in oklab, var(--on-navy) 10%, transparent) 62%,
+      color-mix(in oklab, var(--on-navy) 55%, transparent)
+    );
+    clip-path: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
+  }
+  &::after {
+    inset: 1px;
+    background:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--navy) 40%, transparent),
+        transparent 28%,
+        transparent 72%,
+        color-mix(in oklab, var(--navy) 40%, transparent)
+      ),
+      linear-gradient(135deg, color-mix(in oklab, var(--navy) 58%, transparent), color-mix(in oklab, var(--navy) 42%, transparent));
+    -webkit-backdrop-filter: blur(18px) saturate(1.7);
+    backdrop-filter: blur(18px) saturate(1.7);
+    clip-path: polygon(
+      calc(var(--cut) - 0.4px) 0,
+      100% 0,
+      100% calc(100% - var(--cut) + 0.4px),
+      calc(100% - var(--cut) + 0.4px) 100%,
+      0 100%,
+      0 calc(var(--cut) - 0.4px)
+    );
+  }
+}

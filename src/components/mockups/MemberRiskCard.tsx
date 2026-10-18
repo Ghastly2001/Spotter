@@ -13,7 +13,7 @@ const heatmapPattern = {
   skippedDayIndexes: AT_RISK_MEMBER.skippedDayIndexes,
 };
 
-const MINI_BUTTON = "inline-block rounded-lg px-3.5 pt-[11px] pb-[9px] text-sm leading-none font-semibold";
+const MINI_BUTTON = "inline-block px-3.5 pt-[11px] pb-[9px] text-sm leading-none font-semibold [--cut:var(--cut-sm)]";
 
 export function MemberRiskCard() {
   const member = AT_RISK_MEMBER;
@@ -42,14 +42,14 @@ export function MemberRiskCard() {
         ))}
       </dl>
 
-      <div className="rounded-lg bg-wash px-3.5 py-3">
+      <div className="clip-chisel bg-wash px-3.5 py-3 [--cut:var(--cut-sm)]">
         <small className="mb-0.5 block text-xs text-ink-3">He replied at {member.reply.time}</small>
         {member.reply.text}
       </div>
 
       <div className="flex flex-wrap gap-2.5">
-        <span className={cn(MINI_BUTTON, "bg-marker text-marker-ink")}>{member.suggestedActions.primary}</span>
-        <span className={cn(MINI_BUTTON, "text-ink shadow-[inset_0_0_0_1px_var(--rule)]")}>
+        <span className={cn(MINI_BUTTON, "clip-chisel bg-marker text-marker-ink")}>{member.suggestedActions.primary}</span>
+        <span className={cn(MINI_BUTTON, "chisel-card text-ink [--chisel-bg:var(--panel)] [--chisel-border:var(--ink-3)]")}>
           {member.suggestedActions.secondary}
         </span>
       </div>

@@ -24,7 +24,7 @@ const cutClassNames: Readonly<Record<ChiselCut, string>> = {
   lg: "[--cut:var(--cut-lg)]",
 };
 
-/** Offer boxes only (pricing, founding offer, win-back, sign-up). Product mockups stay rounded. */
+/** Offer boxes (pricing, founding offer, win-back, sign-up). Product mockups use the same cut via Panel. */
 export function ChiselCard({ children, tone, cut = "lg", shadow = "none", className }: ChiselCardProps) {
   return (
     <div

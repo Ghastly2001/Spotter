@@ -14,7 +14,7 @@ export function GymSizeSelect({ defaultValue }: GymSizeSelectProps) {
         Active members
       </Label>
       <Select name="size" defaultValue={defaultValue || DEFAULT_GYM_SIZE}>
-        <SelectTrigger id="join-size" className={`${JOIN_INPUT} w-full data-[size=default]:h-[50px]`}>
+        <SelectTrigger id="join-size" className={`${JOIN_INPUT} w-full data-[size=default]:h-[50px] data-[size=default]:py-0`}>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

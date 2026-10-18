@@ -19,7 +19,7 @@ export default function ErrorPage({ error, retry }: ErrorPageProps) {
       <Container className="grid max-w-[720px] justify-items-start gap-5">
         <h1 className="text-[clamp(2rem,4vw,3rem)]">This page didn’t load properly.</h1>
         <p className="text-ink-2">Something went wrong on our side. Try again, and if it keeps happening, refresh the page.</p>
-        <Button variant="ink" size="cta" onClick={retry}>
+        <Button variant="marker" size="cta" onClick={retry}>
           Try again
         </Button>
       </Container>

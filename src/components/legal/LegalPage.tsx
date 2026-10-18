@@ -29,7 +29,7 @@ export function LegalPage({ legalDocument }: LegalPageProps) {
             <LegalToc items={tocItems} ids={sectionIds} />
           </aside>
           <article className="grid max-w-[68ch] min-w-0 gap-12 text-ink-2">
-            <section aria-labelledby="short-version" className="grid gap-4 rounded-lg bg-wash p-[clamp(20px,3vw,32px)] text-ink">
+            <section aria-labelledby="short-version" className="grid gap-4 clip-chisel bg-wash [--cut:var(--cut-lg)] p-[clamp(20px,3vw,32px)] text-ink">
               <h2 id="short-version" className="m-0 text-[1.375rem]">
                 The short version
               </h2>

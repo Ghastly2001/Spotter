@@ -27,28 +27,13 @@ function ThemeLabel({ className }: Readonly<{ className?: string }>) {
 
 export type ThemeToggleProps = Readonly<Pick<ComponentProps<"button">, "className">>;
 
-/** Icon button for the header. */
+/** Small icon-only button. */
 export function ThemeToggle({ className }: ThemeToggleProps) {
   const toggleTheme = useThemeToggle();
   return (
-    <Button variant="outline" size="icon-lg" onClick={toggleTheme} className={cn("size-11 border-rule", className)}>
+    <Button variant="ghost" size="icon-sm" onClick={toggleTheme} className={cn("text-ink-2 hover:text-ink", className)}>
       <ThemeIcon />
       <ThemeLabel className="sr-only" />
     </Button>
-  );
-}
-
-/** Full-width row with a visible label, for the mobile menu. */
-export function ThemeToggleRow({ className }: ThemeToggleProps) {
-  const toggleTheme = useThemeToggle();
-  return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className={cn("flex w-full items-center gap-3 py-4 text-left text-lg font-semibold [&_svg]:size-5", className)}
-    >
-      <ThemeIcon />
-      <ThemeLabel />
-    </button>
   );
 }

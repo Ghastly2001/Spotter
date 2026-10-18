@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/brand/Container";
 import { FOOTER_NAV } from "@/content/navigation";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const COPYRIGHT_YEAR = 2026;
 
@@ -17,7 +18,10 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <span>© {COPYRIGHT_YEAR} Spotter. Made for gyms in India.</span>
+        <span className="inline-flex items-center gap-3">
+          © {COPYRIGHT_YEAR} Spotter. Made for gyms in India.
+          <ThemeToggle />
+        </span>
       </Container>
     </footer>
   );

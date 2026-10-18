@@ -1,34 +1,32 @@
 import { Container } from "@/components/brand/Container";
 import { Button } from "@/components/ui/button";
 import { JOIN_HREF, MAIN_NAV } from "@/content/navigation";
+import { HeaderShell } from "./HeaderShell";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
-import { ThemeToggle } from "./ThemeToggle";
+
+const NAV_LINK =
+  "relative px-3.5 py-2 text-[0.9375rem] font-medium text-ink-2 no-underline transition-colors hover:text-ink after:absolute after:inset-x-3.5 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-marker after:transition-transform after:duration-300 after:ease-sweep after:content-[''] hover:after:scale-x-100 focus-visible:after:scale-x-100";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-rule bg-paper">
-      <Container className="flex h-header items-center justify-between gap-5">
+    <HeaderShell>
+      <Container className="flex h-header items-center justify-between gap-5 min-[861px]:grid min-[861px]:grid-cols-[1fr_auto_1fr]">
         <Logo />
-        <div className="flex items-center gap-3 min-[861px]:gap-7">
-          <nav aria-label="Main" className="hidden items-center gap-7 min-[861px]:flex">
-            {MAIN_NAV.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-medium text-ink-2 no-underline hover:text-ink hover:underline hover:decoration-2 hover:underline-offset-[6px]"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <ThemeToggle className="hidden min-[861px]:inline-flex" />
-          <Button asChild variant="ink" size="cta-sm">
+        <nav aria-label="Main" className="hidden items-center gap-1 min-[861px]:flex">
+          {MAIN_NAV.map((link) => (
+            <a key={link.href} href={link.href} className={NAV_LINK}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center justify-end gap-3">
+          <Button asChild variant="marker" size="cta-sm">
             <a href={JOIN_HREF}>Get early access</a>
           </Button>
           <MobileNav />
         </div>
       </Container>
-    </header>
+    </HeaderShell>
   );
 }

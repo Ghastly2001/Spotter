@@ -57,7 +57,7 @@ export function PriceCard() {
         Then {formatRupees(PRICES.founding)} a month, locked for as long as you stay. We set up your gym for you.
       </ChiselCard>
 
-      <Button asChild variant="ink" size="cta">
+      <Button asChild variant="marker" size="cta">
         <a href={JOIN_HREF}>Join the founding {FOUNDING_OFFER.spots}</a>
       </Button>
     </ChiselCard>

@@ -15,12 +15,12 @@ function ChatRoot({ children, label, size = "md", className }: WhatsAppChatProps
       role="img"
       aria-label={label}
       className={cn(
-        "min-w-0 overflow-hidden rounded-2xl bg-wa-bg text-wa-ink shadow-chat",
+        "min-w-0 drop-shadow-[0_20px_28px_var(--shadow)]",
         size === "md" ? "text-sm" : "w-full max-w-[440px] text-[0.9375rem]",
         className,
       )}
     >
-      {children}
+      <div className="clip-chisel overflow-hidden bg-wa-bg text-wa-ink [--cut:var(--cut-lg)]">{children}</div>
     </div>
   );
 }
