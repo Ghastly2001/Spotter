@@ -110,7 +110,7 @@
   }
 }
 
-/* One still glow behind a focal element. Cool on navy (warm marigold turns muddy there). */
+/* One still glow behind a focal element: --glow-cool on navy bands, --glow-warm on the page. */
 @utility glow-right {
   &::before {
     content: "";
