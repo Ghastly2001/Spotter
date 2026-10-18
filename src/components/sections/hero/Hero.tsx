@@ -11,9 +11,9 @@ const HERO_HIGHLIGHT_DELAY_MS = 500;
 
 export function Hero() {
   return (
-    <section data-hero className="relative isolate -mt-header overflow-hidden bg-navy text-on-navy [&_:focus-visible]:outline-marker">
+    <section data-hero className="relative isolate -mt-[calc(var(--header-h)+1px)] overflow-hidden bg-navy text-on-navy [&_:focus-visible]:outline-marker">
       <HeroBackdrop />
-      <Container className="grid gap-[clamp(40px,5vw,72px)] pt-[calc(var(--header-h)+clamp(48px,6vw,104px))] pb-[clamp(40px,5vw,72px)]">
+      <Container className="grid gap-[clamp(40px,5vw,72px)] pt-[calc(var(--header-h)+1px+clamp(48px,6vw,104px))] pb-[clamp(40px,5vw,72px)]">
         <div className="grid items-end gap-[clamp(40px,5vw,80px)] min-[961px]:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]">
           <div className="grid max-w-[640px] gap-7 min-[961px]:max-w-[560px]">
             <h1 className="text-[clamp(2.6rem,5vw,4.4rem)] leading-none tracking-[-0.035em]">

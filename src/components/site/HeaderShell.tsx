@@ -6,15 +6,18 @@ import { usePastHero } from "@/hooks/usePastHero";
 import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/lib/utils";
 
-const SCROLL_THRESHOLD_PX = 24;
+const HERO_SCROLL_SHARE = 0.3;
 const HEADER_HEIGHT_PX = 68;
+
+/** How far to scroll before the header gets its background: a share of the hero's height. */
+const heroScrollThreshold = () => (document.querySelector("[data-hero]")?.clientHeight ?? 0) * HERO_SCROLL_SHARE;
 
 export type HeaderShellProps = Readonly<{ children: ReactNode }>;
 
 /** Home: clear at the top, dark glass while scrolling over the hero, paper frost below it. Other pages: paper frost. */
 export function HeaderShell({ children }: HeaderShellProps) {
   const pathname = usePathname();
-  const scrolled = useScrolled(SCROLL_THRESHOLD_PX);
+  const scrolled = useScrolled(heroScrollThreshold);
   const pastHero = usePastHero(HEADER_HEIGHT_PX, pathname);
   const onHome = pathname === "/";
   const overHero = onHome && !scrolled;

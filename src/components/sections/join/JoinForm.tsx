@@ -45,7 +45,7 @@ export function JoinForm() {
         className="min-[521px]:col-span-2"
       />
 
-      <p id={ERROR_ID} role="alert" className="min-h-6 font-semibold text-marker min-[521px]:col-span-2">
+      <p id={ERROR_ID} role="alert" className="font-semibold text-marker empty:hidden min-[521px]:col-span-2">
         {errorMessage}
       </p>
 
