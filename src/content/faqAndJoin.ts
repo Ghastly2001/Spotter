@@ -40,8 +40,9 @@ export const FAQS: ReadonlyArray<Faq> = [
 ];
 
 export const FOUNDING_PERKS: ReadonlyArray<string> = [
-  "₹999 a month, locked for as long as you stay.",
-  "We import your register and set everything up.",
+  "Your first month is free.",
+  "Then ₹999 a month, locked for as long as you stay.",
+  "We import your register and set everything up, free.",
   "A direct WhatsApp line to the people building Spotter.",
 ];
 

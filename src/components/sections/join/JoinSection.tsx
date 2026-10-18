@@ -1,6 +1,7 @@
 import { ChiselCard } from "@/components/brand/ChiselCard";
 import { Section } from "@/components/brand/Section";
 import { FOUNDING_PERKS } from "@/content/faqAndJoin";
+import { FOUNDING_OFFER } from "@/content/pricing";
 import { SECTION_IDS } from "@/content/navigation";
 import { JoinForm } from "./JoinForm";
 
@@ -10,7 +11,7 @@ export function JoinSection() {
       <div className="grid items-start gap-split min-[861px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
         <div>
           <h2 id="join-heading" className="text-[clamp(2.5rem,5vw,4.25rem)]">
-            Be one of the first 100 gyms.
+            Be one of the first {FOUNDING_OFFER.spots} gyms.
           </h2>
           <ul className="m-0 mt-8 list-none p-0">
             {FOUNDING_PERKS.map((perk) => (

@@ -3,8 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "./brand.css";
 
-/* Spotter follows the OS theme, so `dark:` means the media query, not a class. */
-@custom-variant dark (@media (prefers-color-scheme: dark));
+/* <html data-theme> is set before paint from the visitor's choice, else the device setting (see lib/theme.ts). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ---------------------------------------------------------------------------
    Brand tokens. Navy is the surface, mint is the highlighter.
@@ -83,38 +83,36 @@
   --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #0b0f1a;
-    --wash: #121827;
-    --panel: #182033;
-    --ink: #eceff6;
-    --ink-2: #afb6c8;
-    --ink-3: #8b93a8;
-    --rule: #283048;
-    --marker-press: #54f4c6;
-    --navy: #121c36;
-    --navy-2: #1b2849;
-    --glow-warm: rgba(46, 242, 186, 0.16);
-    --glow-cool: rgba(46, 242, 186, 0.22);
-    --loss: #ff7b67;
-    --gain: #52cf8f;
-    --shadow: rgba(0, 0, 0, 0.55);
-    --wa-bg: #0b141a;
-    --wa-head: #202c33;
-    --wa-head-ink: #e9edef;
-    --wa-in: #202c33;
-    --wa-out: #005c4b;
-    --wa-ink: #e9edef;
-    --wa-meta: #8696a0;
-    --wa-sys: #2a2a1c;
-    --wa-sys-ink: #f2d98a;
-    --wa-shadow: rgba(0, 0, 0, 0.4);
-    --sheet: #eeebe0;
-    --sheet-rule: #afc0e2;
-    --sheet-margin: #d86a6a;
-    color-scheme: dark;
-  }
+:root[data-theme="dark"] {
+  --paper: #0b0f1a;
+  --wash: #121827;
+  --panel: #182033;
+  --ink: #eceff6;
+  --ink-2: #afb6c8;
+  --ink-3: #8b93a8;
+  --rule: #283048;
+  --marker-press: #54f4c6;
+  --navy: #121c36;
+  --navy-2: #1b2849;
+  --glow-warm: rgba(46, 242, 186, 0.16);
+  --glow-cool: rgba(46, 242, 186, 0.22);
+  --loss: #ff7b67;
+  --gain: #52cf8f;
+  --shadow: rgba(0, 0, 0, 0.55);
+  --wa-bg: #0b141a;
+  --wa-head: #202c33;
+  --wa-head-ink: #e9edef;
+  --wa-in: #202c33;
+  --wa-out: #005c4b;
+  --wa-ink: #e9edef;
+  --wa-meta: #8696a0;
+  --wa-sys: #2a2a1c;
+  --wa-sys-ink: #f2d98a;
+  --wa-shadow: rgba(0, 0, 0, 0.4);
+  --sheet: #eeebe0;
+  --sheet-rule: #afc0e2;
+  --sheet-margin: #d86a6a;
+  color-scheme: dark;
 }
 
 @theme inline {

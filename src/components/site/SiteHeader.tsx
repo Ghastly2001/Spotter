@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { JOIN_HREF, MAIN_NAV } from "@/content/navigation";
 import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function SiteHeader() {
   return (
@@ -21,6 +22,7 @@ export function SiteHeader() {
               </a>
             ))}
           </nav>
+          <ThemeToggle className="hidden min-[861px]:inline-flex" />
           <Button asChild variant="ink" size="cta-sm">
             <a href={JOIN_HREF}>Get early access</a>
           </Button>

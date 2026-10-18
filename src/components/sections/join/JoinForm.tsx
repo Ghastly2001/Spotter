@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState, useEffect } from "react";
 import { joinFoundingList } from "@/app/actions/joinFoundingList";
 import { Button } from "@/components/ui/button";
+import { PRIVACY_HREF, TERMS_HREF } from "@/content/legal/business";
 import { EMPTY_JOIN_VALUES, type JoinFormState, MAX_TEXT_LENGTH } from "@/lib/joinRequest";
 import { GymSizeSelect } from "./GymSizeSelect";
 import { JoinSuccess } from "./JoinSuccess";
@@ -51,7 +53,15 @@ export function JoinForm() {
         {isPending ? "Reserving your spot…" : "Reserve my spot"}
       </Button>
       <p className="text-sm text-on-navy-muted min-[521px]:col-span-2">
-        We’ll only use your number to talk to you about Spotter.
+        We’ll only use your number to talk to you about Spotter. By reserving a spot you agree to our{" "}
+        <Link href={TERMS_HREF} className="underline underline-offset-4 hover:text-on-navy">
+          Terms
+        </Link>{" "}
+        and{" "}
+        <Link href={PRIVACY_HREF} className="underline underline-offset-4 hover:text-on-navy">
+          Privacy Policy
+        </Link>
+        .
       </p>
     </form>
   );
