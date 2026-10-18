@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { MAIN_NAV } from "@/content/navigation";
+import { ThemeToggleRow } from "./ThemeToggle";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,7 @@ export function MobileNav() {
               {link.label}
             </a>
           ))}
+          <ThemeToggleRow className="border-t border-rule" />
         </nav>
       </SheetContent>
     </Sheet>
