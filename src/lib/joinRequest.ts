@@ -1,4 +1,4 @@
-export const JOIN_FIELDS = ["name", "gym", "city", "phone"] as const;
+export const JOIN_FIELDS = ["name", "gym", "city", "phone", "email"] as const;
 export type JoinField = (typeof JOIN_FIELDS)[number];
 export type JoinValues = Readonly<Record<JoinField | "size", string>>;
 
@@ -8,6 +8,7 @@ export type JoinRequest = Readonly<{
   city: string;
   size: string;
   phone: string;
+  email: string;
 }>;
 
 export type JoinValidation =
@@ -15,9 +16,11 @@ export type JoinValidation =
   | Readonly<{ ok: false; field: JoinField; message: string }>;
 
 export const MAX_TEXT_LENGTH = 80;
+export const MAX_EMAIL_LENGTH = 120;
 const INDIAN_MOBILE = /^[6-9]\d{9}$/;
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-const missingFieldMessages: Readonly<Record<Exclude<JoinField, "phone">, string>> = {
+const missingFieldMessages: Readonly<Record<Exclude<JoinField, "phone" | "email">, string>> = {
   name: "Add your name so we know who to ask for.",
   gym: "Add your gym’s name.",
   city: "Add the city your gym is in.",
@@ -28,7 +31,7 @@ export function readJoinValues(formData: FormData): JoinValues {
     const value = formData.get(key);
     return typeof value === "string" ? value.trim() : "";
   };
-  return { name: read("name"), gym: read("gym"), city: read("city"), size: read("size"), phone: read("phone") };
+  return { name: read("name"), gym: read("gym"), city: read("city"), size: read("size"), phone: read("phone"), email: read("email") };
 }
 
 export function validateJoinRequest(values: JoinValues): JoinValidation {
@@ -44,7 +47,15 @@ export function validateJoinRequest(values: JoinValues): JoinValidation {
     return { ok: false, field: "phone", message: "Enter the 10-digit mobile number you use for WhatsApp." };
   }
 
-  return { ok: true, request: { name: values.name, gym: values.gym, city: values.city, size: values.size, phone } };
+  const email = values.email.toLowerCase();
+  if (!EMAIL.test(email) || email.length > MAX_EMAIL_LENGTH) {
+    return { ok: false, field: "email", message: "Enter an email address we can reach you on." };
+  }
+
+  return {
+    ok: true,
+    request: { name: values.name, gym: values.gym, city: values.city, size: values.size, phone, email },
+  };
 }
 
 export type JoinFormState =
@@ -53,4 +64,4 @@ export type JoinFormState =
   | Readonly<{ status: "failed"; attempt: number; values: JoinValues; message: string }>
   | Readonly<{ status: "joined"; attempt: number; request: JoinRequest }>;
 
-export const EMPTY_JOIN_VALUES: JoinValues = { name: "", gym: "", city: "", size: "", phone: "" };
+export const EMPTY_JOIN_VALUES: JoinValues = { name: "", gym: "", city: "", size: "", phone: "", email: "" };

@@ -229,6 +229,12 @@
   [hidden] {
     display: none !important;
   }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  summary,
+  label:has(input[type="radio"], input[type="checkbox"]) {
+    cursor: pointer;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

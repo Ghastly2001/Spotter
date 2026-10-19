@@ -5,8 +5,8 @@ import { useActionState, useEffect } from "react";
 import { joinFoundingList } from "@/app/actions/joinFoundingList";
 import { Button } from "@/components/ui/button";
 import { PRIVACY_HREF, TERMS_HREF } from "@/content/legal/business";
-import { EMPTY_JOIN_VALUES, type JoinFormState, MAX_TEXT_LENGTH } from "@/lib/joinRequest";
-import { GymSizeSelect } from "./GymSizeSelect";
+import { EMPTY_JOIN_VALUES, type JoinFormState, MAX_EMAIL_LENGTH, MAX_TEXT_LENGTH } from "@/lib/joinRequest";
+import { GymSizeChips } from "./GymSizeChips";
 import { JoinSuccess } from "./JoinSuccess";
 import { JoinTextField } from "./JoinTextField";
 
@@ -32,7 +32,6 @@ export function JoinForm() {
       <JoinTextField name="name" label="Your name" autoComplete="name" maxLength={MAX_TEXT_LENGTH} defaultValue={state.values.name} errorId={errorFor("name")} />
       <JoinTextField name="gym" label="Gym name" autoComplete="organization" maxLength={MAX_TEXT_LENGTH} defaultValue={state.values.gym} errorId={errorFor("gym")} />
       <JoinTextField name="city" label="City" autoComplete="address-level2" maxLength={MAX_TEXT_LENGTH} defaultValue={state.values.city} errorId={errorFor("city")} />
-      <GymSizeSelect defaultValue={state.values.size} />
       <JoinTextField
         name="phone"
         label="WhatsApp number"
@@ -42,8 +41,19 @@ export function JoinForm() {
         maxLength={PHONE_MAX_LENGTH}
         defaultValue={state.values.phone}
         errorId={errorFor("phone")}
+      />
+      <JoinTextField
+        name="email"
+        label="Email"
+        type="email"
+        inputMode="email"
+        autoComplete="email"
+        maxLength={MAX_EMAIL_LENGTH}
+        defaultValue={state.values.email}
+        errorId={errorFor("email")}
         className="min-[521px]:col-span-2"
       />
+      <GymSizeChips defaultValue={state.values.size} />
 
       <p id={ERROR_ID} role="alert" className="font-semibold text-marker empty:hidden min-[521px]:col-span-2">
         {errorMessage}
@@ -53,7 +63,7 @@ export function JoinForm() {
         {isPending ? "Reserving your spot…" : "Reserve my spot"}
       </Button>
       <p className="text-sm text-on-navy-muted min-[521px]:col-span-2">
-        We’ll only use your number to talk to you about Spotter. By reserving a spot you agree to our{" "}
+        We’ll only use your number and email to talk to you about Spotter. By reserving a spot you agree to our{" "}
         <Link href={TERMS_HREF} className="underline underline-offset-4 hover:text-on-navy">
           Terms
         </Link>{" "}

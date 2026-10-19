@@ -12,7 +12,7 @@ export type JoinTextFieldProps = Readonly<{
   prefix?: ReactNode;
   className?: string;
 }> &
-  Pick<ComponentProps<"input">, "autoComplete" | "inputMode" | "maxLength">;
+  Pick<ComponentProps<"input">, "autoComplete" | "inputMode" | "maxLength" | "type">;
 
 export const JOIN_FIELD =
   "rounded-lg border border-on-navy-rule bg-navy text-on-navy transition-colors hover:border-on-navy-muted focus-within:border-marker focus-within:ring-3 focus-within:ring-marker/25 dark:bg-navy dark:hover:bg-navy";
