@@ -35,5 +35,5 @@ Before marking a task as complete:
 - `src/app/globals.css` holds every design token (color, type, radius, chisel cut, spacing, z-index). Components read tokens; they never define colors.
 - `src/components/ui` shared primitives, `src/components/site` header/footer, `src/components/mockups` product screens, `src/components/sections` one folder per page section.
 - `src/content` typed copy and example data. `src/lib` pure logic. `src/hooks` client side effects.
-- Brand rules: navy is the surface, mint (#2EF2BA) is the highlighter (never text on white). Chisel cuts (top-left + bottom-right) on buttons, highlights, offer cards and product mockup cards. No rounded cards or buttons.
+- Brand rules: navy is the surface (deep teal in light mode, on a beige #F5F5DC page), mint (#2EF2BA) is the highlighter (never text on a light page). Chisel cuts (top-left + bottom-right) on buttons, highlights, offer cards and product mockup cards. No rounded cards or buttons.
 - Commands: `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`.
